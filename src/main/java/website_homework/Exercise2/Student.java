@@ -1,4 +1,4 @@
-package Exercise2;
+package website_homework.Exercise2;
 
 public class Student extends Person {
     String studiesType;

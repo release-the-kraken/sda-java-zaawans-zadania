@@ -1,4 +1,4 @@
-package Exercise2;
+package website_homework.Exercise2;
 
 import java.util.Arrays;
 

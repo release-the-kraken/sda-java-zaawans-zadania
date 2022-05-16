@@ -1,4 +1,4 @@
-package Exercise2;
+package website_homework.Exercise2;
 
 public class Staff extends Person {
     String specialization;
