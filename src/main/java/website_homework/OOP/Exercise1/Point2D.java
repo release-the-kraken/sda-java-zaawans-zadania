@@ -1,4 +1,4 @@
-package website_homework.Exercise1;
+package website_homework.OOP.Exercise1;
 
 public class Point2D {
     private float x;

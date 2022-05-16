@@ -1,6 +1,6 @@
-package website_homework.Exercise5;
+package website_homework.OOP.Exercise5;
 
-import website_homework.Exercise1.Point2D;
+import website_homework.OOP.Exercise1.Point2D;
 
 public class Line {
     Point2D lineBeginPoint;

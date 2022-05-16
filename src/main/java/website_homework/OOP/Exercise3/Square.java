@@ -1,4 +1,4 @@
-package website_homework.Exercise3;
+package website_homework.OOP.Exercise3;
 
 public class Square extends Rectangle {
 

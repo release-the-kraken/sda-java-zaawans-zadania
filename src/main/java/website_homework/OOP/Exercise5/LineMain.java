@@ -1,4 +1,4 @@
-package website_homework.Exercise5;
+package website_homework.OOP.Exercise5;
 
 import java.util.Arrays;
 
