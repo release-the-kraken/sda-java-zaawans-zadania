@@ -15,7 +15,7 @@ public class ParcelValidator implements Validator{
     }
 
     boolean isDimensionInLimit(Parcel parcel) {
-        if (parcel.zLength < 30 && parcel.xLength < 30 && parcel.yLength < 30) {
+        if (parcel.zLength < 30 || parcel.xLength < 30 || parcel.yLength < 30) {
             System.out.println("Dimension less than 30.");
             return false;
         }
@@ -27,10 +27,10 @@ public class ParcelValidator implements Validator{
             System.out.println("Weight limit for non express package exceeded.");
             return false;
         }
-//        if(parcel.isExpress && parcel.weight > 15 ) {
-//            System.out.println("Weigh limit for express package exceeded.");
-//            return false;
-//        }
+        if(parcel.isExpress && parcel.weight > 15 ) {
+            System.out.println("Weigh limit for express package exceeded.");
+            return false;
+        }
         return true;
     }
 }
