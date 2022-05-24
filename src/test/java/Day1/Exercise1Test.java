@@ -1,5 +1,6 @@
 package Day1;
 
+import Day1.Exercise1.Exercise1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
