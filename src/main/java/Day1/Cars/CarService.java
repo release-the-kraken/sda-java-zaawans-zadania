@@ -21,7 +21,8 @@ public class CarService {
         }
     }
     List<Car> getCarList(){
-        return carList;
+        //return carList; ---> returns a reference to carList, operations done on new list will affect the original list
+        return new ArrayList<>(carList);
     }
     List<Car> getV12Cars(){
         List<Car> V12CarList = carList
