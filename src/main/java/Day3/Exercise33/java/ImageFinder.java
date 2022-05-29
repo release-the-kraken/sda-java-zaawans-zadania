@@ -10,7 +10,8 @@ import java.util.stream.Stream;
 public class ImageFinder {
     public static List<String> findImages(Path directory){
         try(Stream<Path> walk = Files.walk(directory)){
-            List<String> images = walk.filter(file -> imageValidator(file))
+            List<String> images = walk
+                    .filter(file -> imageValidator(file))
                     .map(file -> file.getFileName().toString())
                     //.forEach(System.out::println);
                     .toList();
