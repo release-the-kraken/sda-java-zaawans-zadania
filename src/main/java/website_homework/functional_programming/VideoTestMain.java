@@ -15,9 +15,7 @@ tylko video typu Clip z parzystych epizodów i nieparzystych sezonów
 tylko video typu Preview z nieparzystych epizodów i parzystych sezonów
 */
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 class VideoTestMain {
@@ -46,22 +44,63 @@ class VideoTestMain {
         Season season2 = new Season("season2", 2, Arrays.asList(episode3));
         Season season3 = new Season("season3", 3, Arrays.asList(episode4));
 
-       // List<Episode> episodeList = Arrays.asList(episode1, episode2, episode3, episode4);
-        List<Season> seasonList = Arrays.asList(season1, season2, season3);
-        System.out.println("EPISODES");
-        seasonList.stream()
-                .flatMap(season -> season.episodes.stream())
-                .forEach(episode -> System.out.println(episode.toString()));
-        System.out.println("VIDEOS");
-        seasonList.stream()
+        List<Season> seasons = Arrays.asList(season1, season2, season3);
+        System.out.print("EPISODES - ");
+        System.out.print(getEpisodes(seasons) + "\n");
+        System.out.print("EPISODE NAMES - ");
+        System.out.print(getEpisodeNames(seasons) + "\n");
+        System.out.print("EPISODE NUMBERS - ");
+        System.out.print(getEpisodeNumbers(seasons) + "\n");
+        System.out.print("VIDEOS - ");
+        System.out.print(getVideos(seasons) + "\n");
+        System.out.print("SEASONS - ");
+        System.out.print(getSeasonNames(seasons)+ "\n");
+        System.out.print("SEASON NUMBERS - ");
+        System.out.print(getSeasonNumbers(seasons) + "\n");
+        System.out.print("EPISODES FROM EVEN SEASONS - ");
+        System.out.print(getEpisodesFromEvenSeasons(seasons) + "\n");
+
+    }
+
+    static List<Episode> getEpisodes(List<Season> seasons){
+       return seasons.stream()
+               .flatMap(season -> season.episodes.stream())
+               .toList();
+    }
+    static List<String> getEpisodeNames(List<Season> seasons){
+       return seasons.stream()
+               .flatMap(season -> season.episodes.stream())
+               .map(episode -> episode.episodeName)
+               .toList();
+    }
+    static List<Integer> getEpisodeNumbers(List<Season> seasons){
+       return seasons.stream()
+               .flatMap(season -> season.episodes.stream())
+               .map(episode -> episode.episodeNumber)
+               .toList();
+    }
+
+    static List<Video> getVideos(List<Season> seasons){
+        return seasons.stream()
                 .flatMap(season -> season.episodes.stream())
                 .flatMap(episode -> episode.videos.stream())
-                .forEach(video -> System.out.println(video.toString()));
+                .toList();
 
-
-
-
-
-
+    }
+    private static List<String> getSeasonNames(List<Season> seasons) {
+        return seasons.stream()
+                .map(season -> season.seasonName)
+                .toList();
+    }
+        private static List<Integer> getSeasonNumbers(List<Season> seasons) {
+        return seasons.stream()
+                .map(season -> season.seasonNumber)
+                .toList();
+    }
+    static List<Episode> getEpisodesFromEvenSeasons(List<Season> seasons){
+        return seasons.stream()
+                .filter(season -> season.seasonNumber % 2 ==0)
+                .flatMap(season -> season.episodes.stream())
+                .toList();
     }
 }

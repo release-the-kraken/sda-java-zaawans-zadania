@@ -26,7 +26,7 @@ public class App {
         ObjectMapper objectMapper = new ObjectMapper();
         Root root = objectMapper.readValue(result, Root[].class)[0];
 
-        System.out.println(CurrencyGetter.getCurrency(root, CurrencyCodes.TRY));
+        System.out.println(CurrencyGetter.getCurrency(root, CurrencyCodes.EUR));
 
     }
 
